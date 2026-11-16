@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: makkal_pugar
+      MYSQL_USER: portal_user
+      MYSQL_PASSWORD: portal_strong_password
+      MYSQL_ROOT_PASSWORD: root_strong_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./backend-django/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+  django-api:
+    build: ./backend-django
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    environment:
+      DB_ENGINE: django.db.backends.mysql
+      DB_NAME: makkal_pugar
+      DB_USER: portal_user
+      DB_PASSWORD: portal_strong_password
+      DB_HOST: mysql
+      DB_PORT: "3306"
+      DJANGO_SECRET_KEY: change-this-in-production
+      EMAIL_HOST: smtp.gmail.com
+      EMAIL_PORT: "587"
+    ports:
+      - "8000:8000"
+
+volumes:
+  mysql_data:

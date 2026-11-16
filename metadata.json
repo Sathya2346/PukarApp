@@ -1,0 +1,8 @@
+{
+  "name": "Makkal Pugar Seyali — Public Grievance Portal",
+  "description": "Enterprise bilingual (Tamil & English) public grievance platform featuring Citizen, Officer, and Admin panels with Email OTP verification, real-time status tracking, analytics, and downloadable React Native (Expo) + Python Django + MySQL source code.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

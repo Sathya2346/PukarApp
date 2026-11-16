@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "மக்கள் புகார் செயலி | Makkal Pugar",
+    "slug": "makkal-pugar-seyali",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "in.gov.makkalpugar.app"
+    },
+    "android": {
+      "package": "in.gov.makkalpugar.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#B91C1C"
+      }
+    },
+    "plugins": [
+      "expo-secure-store",
+      "expo-image-picker"
+    ]
+  }
+}
